@@ -1,3 +1,5 @@
+package io.github.starlight220.robocalc
+
 import csstype.*
 import emotion.react.css
 import react.*
@@ -37,8 +39,7 @@ fun ChildrenBuilder.converter(
 }
 
 val Entry = field {
-    backgroundColor = rgb(8, 97, 22)
-    color = rgb(56, 246, 137)
+
 }
 
 val Converter = field {
@@ -51,10 +52,11 @@ private fun field(css: PropertiesBuilder.() -> Unit) = FC<EntryProp> { props ->
         css {
             css()
             display = Display.flex
-            flexDirection = FlexDirection.row
+            flexDirection = FlexDirection.column
+            alignContent = AlignContent.center
             padding = 5.px
         }
-        +"${props.label}:"
+        +props.label
         input {
             css {
                 marginTop = 5.px
