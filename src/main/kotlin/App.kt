@@ -18,6 +18,8 @@ fun main() {
 val App = FC<Props> {
     div {
         css {
+            padding = 5.pc
+            height = 100.pc
             backgroundColor = rgb(87, 179, 255)
             alignSelf = AlignSelf.stretch
         }
@@ -26,11 +28,18 @@ val App = FC<Props> {
     }
 }
 
-
 val GithubLink =  FC<Props> {
-    a {
-        href = "https://github.com/Starlight220/robocalc/"
-        className = ClassName("fab fa-github")
-        id = "github"
+    div {
+        css {
+            padding = 5.px
+            justifyContent = JustifyContent.center
+            display = Display.flex
+        }
+        a {
+            href = "https://github.com/Starlight220/calculon/"
+            className = ClassName("fab fa-github")
+            id = "github"
+            +"View source on GitHub"
+        }
     }
 }

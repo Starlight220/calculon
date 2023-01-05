@@ -5,7 +5,7 @@ import emotion.react.css
 import react.FC
 import react.Props
 import react.dom.html.ReactHTML
-import react.dom.html.ReactHTML.br
+import react.dom.html.ReactHTML.b
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.hr
 import react.useState
@@ -25,6 +25,7 @@ val Calculator = FC<Props> {
             alignSelf = AlignSelf.stretch
             alignContent = AlignContent.stretch
             alignItems = AlignItems.stretch
+            borderRadius = 5.pc
         }
         fun entryPair(title: String, index: Int, label1: String, label2: String) {
             ReactHTML.div {
@@ -32,12 +33,15 @@ val Calculator = FC<Props> {
                     display = Display.flex
                     flexDirection = FlexDirection.column
                     border = Border(2.px, LineStyle.solid, rgb(0,0,0))
+                    borderRadius = 5.px
                     justifyContent = JustifyContent.center
                     padding = Padding(2.px, 2.px)
                     backgroundColor = rgb(8, 97, 22)
                     color = rgb(56, 246, 137)
                 }
-                +title
+                b {
+                    +title
+                }
                 hr()
                 entry(
                     state = stateTop, label = label1, k = convertersTop.fold(index)
@@ -55,12 +59,15 @@ val Calculator = FC<Props> {
                     display = Display.flex
                     flexDirection = FlexDirection.column
                     border = Border(2.px, LineStyle.solid, rgb(0,0,0))
+                    borderRadius = 5.px
                     justifyContent = JustifyContent.center
                     padding = Padding(2.px, 2.px)
                     backgroundColor = rgb(80, 9, 22)
                     color = rgb(156, 26, 37)
                 }
-                +title
+                b {
+                    +title
+                }
                 hr()
                 val (value, setter) = convertersTop[index]
                 Converter {
@@ -90,12 +97,15 @@ val Calculator = FC<Props> {
                 display = Display.flex
                 flexDirection = FlexDirection.column
                 border = Border(2.px, LineStyle.solid, rgb(0,0,0))
+                borderRadius = 5.px
                 justifyContent = JustifyContent.center
                 padding = Padding(2.px, 2.px)
                 backgroundColor = rgb(80, 9, 22)
                 color = rgb(156, 26, 37)
             }
-            +"Motor"
+            b {
+                +"Motor"
+            }
             hr()
             converter(
                 label = "kV", state = convertersTop[2]
